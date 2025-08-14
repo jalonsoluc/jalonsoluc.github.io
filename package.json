@@ -1,15 +1,15 @@
 {
   "name": "jalonsoluc.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "Juan José Alonso's Modern Software Engineering Portfolio",
   "main": "index.js",
   "scripts": {
-    "build-css": "tailwindcss build src/styles.css -o dist/styles.css",
-    "watch-css": "tailwindcss build src/styles.css -o dist/styles.css --watch",
+    "build-css": "tailwindcss build src/input.css -o src/output.css",
+    "watch-css": "tailwindcss build src/input.css -o src/output.css --watch",
     "dev": "http-server ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["portfolio", "software-engineering", "ai", "machine-learning"],
+  "author": "Juan José Alonso",
   "license": "ISC",
   "dependencies": {
     "tailwindcss": "^3.4.3"

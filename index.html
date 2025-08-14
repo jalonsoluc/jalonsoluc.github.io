@@ -3,139 +3,581 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juanjo's Portfolio</title>
-    <!-- Tailwind -->
+    <title>Juan José Alonso - Software Engineer</title>
+    <meta name="description" content="Juan José Alonso - Software Engineering Student at UC Chile. AI Research Assistant, Teaching Assistant, and aspiring software engineer.">
+    
+    <!-- Tailwind CSS -->
     <link href="src/output.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="src/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="src/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="src/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="src/favicon_io/site.webmanifest">
+    
+    <style>
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f0f0f; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+        
+        /* Smooth animations */
+        .animate-fade-in { animation: fadeIn 0.6s ease-out; }
+        .animate-slide-up { animation: slideUp 0.6s ease-out; }
+        .animate-slide-left { animation: slideLeft 0.6s ease-out; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideLeft { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        
+        /* Gradient text */
+        .gradient-text { background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        
+        /* Glass effect */
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* Hover effects */
+        .hover-lift { transition: all 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        
+        /* Skill bar animation */
+        .skill-bar { transition: width 1.5s ease-in-out; }
+        
+        /* Typewriter effect */
+        .typewriter { overflow: hidden; border-right: 2px solid #3b82f6; white-space: nowrap; animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
+        
+        @keyframes typing { from { width: 0; } to { width: 100%; } }
+        @keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: #3b82f6; } }
+    </style>
 </head>
-<body class="bg-[#1B1C1D] min-h-screen flex items-center justify-center p-5">
-    <div class="space-y-4">
-        <div class="bg-[#1B1C1D] border border-[#4A5050] rounded-xl p-6 text-center">
-            <h3 class="text-xl mb-4 text-[#BDC1C5]">Download My <span class="font-semibold">Resume</span> / Descarga mi <span class="font-semibold">CV</span></h3>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="src/CV_Juan_José_Alonso.pdf" 
-                    download="Juan_Jose_Alonso_Resume_EN"
-                    class="bg-[#262627] text-[#BDC1C5] font-semibold py-3 px-6 w-64 flex justify-center items-center rounded-lg">
-                    <i class="fa-solid fa-file-arrow-down mr-2"></i>
-                    <span>English Version</span>
-                    <span class="ml-2">🇬🇧</span>
-                </a>
-                <a href="src/CV_Juan_José_Alonso__Spanish_.pdf" 
-                    download="CV_Juan_Jose_Alonso_ES"
-                    class="bg-[#262627] text-[#BDC1C5] font-semibold py-3 px-6 w-64 flex justify-center items-center rounded-lg">
-                    <i class="fa-solid fa-file-arrow-down mr-2"></i>
-                    <span>Versión en Español</span>
-                    <span class="ml-2">🇪🇸</span>
-                </a>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white font-inter min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">JA</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="hover:text-blue-400 transition-colors duration-200">Home</a>
+                        <a href="#about" class="hover:text-blue-400 transition-colors duration-200">About</a>
+                        <a href="#skills" class="hover:text-blue-400 transition-colors duration-200">Skills</a>
+                        <a href="#projects" class="hover:text-blue-400 transition-colors duration-200">Projects</a>
+                        <a href="#experience" class="hover:text-blue-400 transition-colors duration-200">Experience</a>
+                        <a href="#contact" class="hover:text-blue-400 transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white hover:text-blue-400 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    <div class="bg-[#1B1C1D] border border-[#4A5050] rounded-xl max-w-4xl w-full p-6">
-        <header class="m-3 p-5 text-2xl border border-[#4A5050] rounded-xl">
-            <div class="flex justify-between items-center"> 
-                <h1 class="text-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                    <span class="font-bold">Juanjo's</span> <span class="italic font-extralight">Portfolio</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="animate-fade-in">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 text-center">
+                    <span class="gradient-text">Juan José Alonso</span>
                 </h1>
-                <div class="flex space-x-2"> 
-                    <!-- GitHub Button -->
-                    <a href="https://github.com/jalonsoluc" 
-                        class="bg-[#1B1C1D] text-[#BDC1C5] font-semibold w-10 h-10 flex justify-center items-center rounded-lg shadow-md">
-                        <i class="fa-brands fa-github"></i>
+                <div class="typewriter text-2xl sm:text-3xl lg:text-4xl text-gray-300 mb-8 text-center">
+                    Software Engineering Student & AI Researcher
+                </div>
+                <p class="text-xl text-gray-400 mb-12 max-w-2xl text-left mx-auto">
+                    Passionate about artificial intelligence, software development, and creating innovative solutions. 
+                    Currently pursuing my degree at UC Chile while contributing to cutting-edge research.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover-lift transition-all duration-300 flex items-center gap-2">
+                        <i class="fas fa-envelope text-lg"></i>
+                        Get In Touch
                     </a>
-                    <!-- LinkedIn Button -->
-                    <a href="https://www.linkedin.com/in/juan-jos%C3%A9-alonso-lecaros-a0168023a/" 
-                        class="bg-[#1B1C1D] text-[#BDC1C5] font-semibold w-10 h-10 flex justify-center items-center rounded-lg shadow-md">
-                        <i class="fa-brands fa-linkedin-in"></i>
+                    <a href="src/CV_Juan_José_Alonso.pdf" download class="border border-gray-600 hover:border-blue-400 text-gray-300 hover:text-blue-400 font-semibold py-4 px-8 rounded-lg hover-lift transition-all duration-300 flex items-center gap-2">
+                        <i class="fas fa-download text-lg"></i>
+                        Download CV
                     </a> 
                 </div>
             </div>
-        </header>
-        <div class="p-5">
-            <h2 class="text-xl text-[#BDC1C5] font-semibold mb-3">👨🏽‍💻 Who is Juanjo?</h2>
-            <p class="text-[#BDC1C5]">Juan José Alonso (a.k.a. Juanjo) is a 22 year-old, fifth-year <span class="font-semibold">Software Engineering student</span> 
-                @ <em>Pontificia Universidad Católica de Chile</em> 🇨🇱.</p>
         </div>
-        <div class="p-5">
-            <h2 class="text-xl font-semibold mb-3 text-[#BDC1C5]">📝 What keeps Juanjo busy?</h2>
-            <p class="text-[#BDC1C5]">33.3% of the time: <span class="font-semibold">sleeping</span>. 😴
-                <br>
-                <br>
-                In all seriousness:</p>
-            <div class="m-6">
-                <p class="text-[#BDC1C5]">🤖 <span class="font-semibold">Teaching Assistant</span> @ <span class="italic">Artificial Intelligence (UC Chile)</span>.</p>
-                <p class="text-[#BDC1C5]">🔬 <span class="font-semibold">Researching Assistant</span> and <span class="font-bold">Co-Author</span> @ Multiple Investigations <span class="italic">(UC Chile)</span>.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
             </div>
-            <p class="text-[#BDC1C5]">He currently is <span class="italic">quite busy</span> with other stuff, but these are the <span class="underline">roles that stand out the most</span>.</p>
-        </div>
-        <div class="p-5">
-            <h2 class="text-xl text-[#BDC1C5] font-semibold mb-3">🗂️ What has Juanjo done throughout his short-lived career?</h2>
-            <p class="text-[#BDC1C5]">So far, he has:</p>
-            <div class="m-6">
-                <p class="text-[#BDC1C5]">⛹🏽‍♂️ Been part of the <span class="font-semibold">Track and Field</span> and <span class="font-semibold">Basketball</span> teams at his school.</p>
-                <p class="text-[#BDC1C5]">🥇 <span class="font-semibold">Won an Entrepreneurship Competition</span> in London at the age of 16.</p>
-                <p class="text-[#BDC1C5]">📈 Achieved a <span class="font-semibold">score of 198 on the Cambridge C1 Advanced test</span>, certifying at C1 level in English.</p>
-                <p class="text-[#BDC1C5]">🤝 Been a <span class="font-semibold">Member of the Innovation and Entrepreneurship Committee</span> of the <span class="italic">Engineering Student Council @ UC Chile</span>.</p>
-                <p class="text-[#BDC1C5]">👨🏽‍🏫 Been a <span class="font-semibold">Teaching Assistant</span> @ <span class="italic">Engineering Challenges</span>, <span class="italic">Artificial Intelligence</span>.</p>
-                <p class="text-[#BDC1C5]">💻 Been an <span class="font-semibold">Intern</span> at <span class="italic">Williamson Industrial S.A.</span></p>
-                <p class="text-[#BDC1C5]">🤖 Been a <span class="font-semibold">Software Engineering for AI Applications Intern</span> @ <span class="italic">Cencosud</span>.</p>
-            </div>
-            <p class="text-[#BDC1C5]">He has a <span class="font-semibold">passion for learning new things</span> and <span class="font-semibold">living enriching experiences</span>, so <span class="underline">this list will continue to grow</span>.</p>
-        </div>
-        <div class="p-5">
-            <h2 class="text-xl font-semibold text-[#BDC1C5] mb-3">❤️ Which project best represents Juanjo?</h2>
-            <div class="border border-[#4A5050] rounded-lg p-5 mt-2 mb-3">
-                <p class="text-[#BDC1C5]">⚠️ <span class="font-semibold italic">DISCLAIMER: </span>there were some <span class="italic">really cool</span> projects @ Cencosud, which I am not allowed to disclose. When the time is right, I'll let you know some of the stuff we did while I was there. Hopefully soon! 🤐</p>
-            </div>
-            <p class="text-[#BDC1C5]">Among the ones that I am allowed to share? It has to be <span class="font-semibold italic">ChessRec</span>: a chess opening recommendation system ♟️. Developed alongside his fellow classmates Joaquín Domínguez and José Tomás Lledó, <span class="italic">ChessRec</span> combines multiple key aspects of his profile: 
-                his interest in technology (artificial intelligence and data analysis), his passion for sports and strategy (chess), and his ability to apply advanced analytical methodologies in a practical context. 
-                This project not only highlights his technical skills but also showcases his creativity and solution-oriented mindset, values that seem to define his approach to challenges.
-                <br>
-                <br>
-                <span class="underline">For further details</span>, feel free to explore the accompanying <a href="https://github.com/jalonsoluc/chessrec/blob/main/ChessRec__An_Embedding_Based_Recommender_System_for_Chess_Opening_Suggestions.pdf" class="text-blue-600 hover:underline">paper</a>. The source code is also available <a href="https://github.com/jalonsoluc/chessrec" class="text-blue-600 hover:underline">here</a>.
-            </p>
-        </div>
-        <div class="p-5">
-            <h2 class="text-xl text-[#BDC1C5] font-semibold mb-3">😁 What are some of Juanjo's hobbies?</h2>
-            <p class="text-[#BDC1C5]">Got loads of them! Here are the ones he loves the most:</p>
-            <div class="m-6">
-                <p class="text-[#BDC1C5]">🎾 <span class="font-semibold">Playing tennis</span></p>
-                <p class="text-[#BDC1C5]">🎮 <span class="font-semibold">Playing videogames</span></p>
-                <p class="text-[#BDC1C5]">🐶 <span class="font-semibold">Playing with his faithful pet dog, Coco</span></p>
-            </div>
-            <p class="text-[#BDC1C5]">As you can tell, he <span class="underline">loves playing around</span>. 😅</p>
-        </div>
-        <div class="p-5">
-            <h2 class="text-xl text-[#BDC1C5] font-semibold mb-3">👋 How can I get in touch?</h2>
-            <p class="text-[#BDC1C5]">Loads of ways! Here are some of them:</p>
-            <div class="m-6">
-                <p class="text-[#BDC1C5]">📧 His <span class="font-semibold">email address</span> is <a href="mailto:jalonsol@uc.cl" class="text-blue-600 hover:underline">jalonsol@uc.cl</a></p>
-                <p class="text-[#BDC1C5]">📞 His <span class="font-semibold">mobile phone </span> is 
-                    <a href="tel:+56968547247" class="text-blue-600 hover:underline">+(56 9) 6854 7247</a> 
-                    <span class="text-gray-300 italic">(although he does prefer text messages...)</span>
-                </p>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-left">
+                    <div class="glass rounded-2xl p-8 hover-lift">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-400">Who I Am</h3>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            I'm a 22-year-old Software Engineering student at Pontificia Universidad Católica de Chile, 
+                            passionate about technology and innovation. I love solving complex problems and turning ideas into reality.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            When I'm not coding or researching, you'll find me playing tennis, gaming, or spending time with my dogs Coco and Corcho. 
+                            I believe in continuous learning and pushing the boundaries of what's possible.
+                        </p>
+                    </div>
+                </div>
                 
-            </div>
-            <p class="text-[#BDC1C5]"><span class="underline">For serious inquiries, an email is preferred</span>. Anything else, just shoot him a text. 😉</p>
-            <div class="mt-3">
-                <div class="mt-3">
-                    <a href="https://wa.me/56968547247?text=Hi%20Juanjo!%20I%20went%20through%20your%20portfolio.%20Mind%20if%20we%20have%20a%20chat%3F"
-                        class="bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-[#1B1C1D] font-semibold py-3 px-6 rounded flex items-center space-x-2">
-                        <i class="fa-brands fa-whatsapp text-[#1B1C1D]"></i>
-                        <span class="text-[#1B1C1D]">Chat on WhatsApp</span>
-                    </a>
+                <div class="animate-slide-up">
+                    <div class="glass rounded-2xl p-8 hover-lift">
+                        <h3 class="text-2xl font-semibold mb-4 text-purple-400">Quick Facts</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                <span class="text-gray-300">5th Year Software Engineering Student</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                <span class="text-gray-300">AI Teaching Assistant at UC Chile</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-pink-500 rounded-full"></div>
+                                <span class="text-gray-300">Research Assistant & Co-Author</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                <span class="text-gray-300">IELTS Academic C2 (8.5 Band Score)</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="bg-[#1B1C1D] border border-[#4A5050] rounded-xl max-w-4xl w-full p-6 text-center">
-        <div class="flex items-center justify-center space-x-4">
-            <p class="text-[#BDC1C5]">🗓️ <span class="font-semibold">Last updated on:</span> April 4th, 2025</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold mb-4">Skills & Technologies</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-2xl text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Programming</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">Python</span>
+                                <span class="text-sm text-gray-400">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">JavaScript</span>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">C#</span>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-pink-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & ML -->
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-brain text-2xl text-purple-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">AI & Machine Learning</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">TensorFlow</span>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">PyTorch</span>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-pink-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">Data Analysis</span>
+                                <span class="text-sm text-gray-400">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="glass rounded-2xl p-6 hover-lift">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe text-2xl text-pink-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Web Development</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">React</span>
+                                <span class="text-sm text-gray-400">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-pink-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">Node.js</span>
+                                <span class="text-sm text-gray-400">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-blue-500 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">Tailwind CSS</span>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>    
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- ChessRec Project -->
+                <div class="glass rounded-2xl p-8 hover-lift group">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chess text-3xl text-blue-400 mr-3"></i>
+                        <h3 class="text-2xl font-semibold">ChessRec</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        An intelligent chess opening recommendation system that combines AI, data analysis, and strategic thinking. 
+                        Developed with classmates Joaquín Domínguez and José Tomás Lledó.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Machine Learning</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">Data Analysis</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">AI</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/jalonsoluc/chessrec" class="text-blue-400 hover:text-blue-300 transition-colors duration-200">
+                            <i class="fab fa-github mr-2"></i>View Code
+                        </a>
+                        <a href="https://github.com/jalonsoluc/chessrec/blob/main/ChessRec__An_Embedding_Based_Recommender_System_for_Chess_Opening_Suggestions.pdf" class="text-purple-400 hover:text-purple-300 transition-colors duration-200">
+                            <i class="fas fa-file-pdf mr-2"></i>Research Paper
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Academic Publication -->
+                <div class="glass rounded-2xl p-8 hover-lift group">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-graduation-cap text-3xl text-purple-400 mr-3"></i>
+                        <h3 class="text-2xl font-semibold">Academic Publication</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        <strong>"Improving Automated Secure Code Reviews: A Synthetic Dataset for Code Vulnerability Flaws"</strong> - 
+                        Second co-author of this research paper accepted at MSR 2025 (Registered Reports).
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Research</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">AI/ML</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">Academic</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Security</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://arxiv.org/abs/2504.16310" class="text-purple-400 hover:text-purple-300 transition-colors duration-200 flex items-center">
+                            <i class="fas fa-file-pdf mr-2"></i>View Paper
+                        </a>
+                        <span class="text-green-400 text-sm flex items-center">
+                            <i class="fas fa-check-circle mr-2"></i>Accepted at MSR 2025
+                        </span>
+                    </div>
+        </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold mb-4">Experience & Achievements</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Current Role -->
+                <div class="glass rounded-2xl p-8 hover-lift">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-chalkboard-teacher text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-blue-400">AI Teaching Assistant</h3>
+                            <p class="text-gray-400 mb-2">UC Chile • 2024 - Present</p>
+                            <p class="text-gray-300 leading-relaxed">
+                                Leading artificial intelligence courses, mentoring students, and developing educational materials 
+                                for cutting-edge AI curriculum at one of Chile's top universities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Role -->
+                <div class="glass rounded-2xl p-8 hover-lift">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-flask text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-purple-400">Research Assistant & Co-Author</h3>
+                            <p class="text-gray-400 mb-2">UC Chile • 2023 - Present</p>
+                            <p class="text-gray-300 leading-relaxed">
+                                Contributing to multiple research investigations in AI and software engineering, 
+                                with publications and collaborative research projects.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internship -->
+                <div class="glass rounded-2xl p-8 hover-lift">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-briefcase text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-pink-400">Software Engineering Intern</h3>
+                            <p class="text-gray-400 mb-2">Cencosud • 2023</p>
+                            <p class="text-gray-300 leading-relaxed">
+                                Developed AI applications and software solutions for one of Latin America's largest retail companies, 
+                                gaining valuable industry experience in enterprise software development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrepreneurship -->
+                <div class="glass rounded-2xl p-8 hover-lift">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-trophy text-white text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-green-400">Entrepreneurship Competition Winner</h3>
+                            <p class="text-gray-400 mb-2">London • 2019</p>
+                            <p class="text-gray-300 leading-relaxed">
+                                Won an international entrepreneurship competition in London at age 16, 
+                                demonstrating early leadership and innovative thinking skills.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+                <p class="text-xl text-gray-400 mt-4">Let's discuss opportunities, collaborations, or just have a chat!</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Contact Info -->
+                <div class="glass rounded-2xl p-8 hover-lift">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-400">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-blue-400 text-xl"></i>
+                            <a href="mailto:jalonsol@uc.cl" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">
+                                jalonsol@uc.cl
+                            </a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-purple-400 text-xl"></i>
+                            <a href="tel:+56968547247" class="text-gray-300 hover:text-purple-400 transition-colors duration-200">
+                                +56 9 6854 7247
+                            </a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-pink-400 text-xl"></i>
+                            <span class="text-gray-300">Santiago, Chile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="glass rounded-2xl p-8 hover-lift">
+                    <h3 class="text-2xl font-semibold mb-6 text-purple-400">Connect With Me</h3>
+                    <div class="space-y-2">
+                        <a href="https://github.com/jalonsoluc" class="flex items-center p-4 rounded-xl transition-all duration-300 group hover:bg-white/5">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-500/30 transition-colors duration-300">
+                                <i class="fab fa-github text-2xl text-blue-400"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white mb-1">GitHub</h4>
+                                <p class="text-sm text-gray-400">View my projects and contributions</p>
+                            </div>
+                            <div class="text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/juan-jos%C3%A9-alonso-lecaros-a0168023a/" class="flex items-center p-4 rounded-xl transition-all duration-300 group hover:bg-white/5">
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4 group-hover:bg-purple-500/30 transition-colors duration-300">
+                                <i class="fab fa-linkedin text-2xl text-purple-400"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white mb-1">LinkedIn</h4>
+                                <p class="text-sm text-gray-400">Connect professionally</p>
+                            </div>
+                            <div class="text-purple-400 group-hover:text-purple-300 transition-colors duration-200">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </a>
+                        
+                        <a href="https://wa.me/56968547247?text=Hi%20Juanjo!%20I%20went%20through%20your%20portfolio.%20Mind%20if%20we%20have%20a%20chat%3F" class="flex items-center p-4 rounded-xl transition-all duration-300 group hover:bg-white/5">
+                            <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4 group-hover:bg-green-500/30 transition-colors duration-300">
+                                <i class="fab fa-whatsapp text-2xl text-green-400"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white mb-1">WhatsApp</h4>
+                                <p class="text-sm text-gray-400">Quick chat and messages</p>
+                            </div>
+                            <div class="text-green-400 group-hover:text-green-300 transition-colors duration-200">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-400">
+                © 2025 Juan José Alonso. Built with ❤️ and modern web technologies.
+            </p>
+            <p class="text-gray-500 text-sm mt-2">
+                Last updated: August 14th, 2025
+            </p>
+        </div>
+    </footer>
+
+    <!-- Smooth scrolling script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Skill bars animation
+        const skillBars = document.querySelectorAll('.skill-bar');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.style.width;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => skillObserver.observe(bar));
+    </script>
 </body>
+</html>
 </html>
