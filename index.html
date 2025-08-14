@@ -17,6 +17,13 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="src/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="src/favicon_io/favicon-32x32.png">
@@ -81,34 +88,49 @@
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button class="text-white hover:text-blue-400 focus:outline-none">
+                    <button id="mobileMenuBtn" class="text-white hover:text-blue-400 focus:outline-none">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
+                </div>
+                
+                <!-- Mobile Menu Dropdown -->
+                <div id="mobileMenu" class="absolute top-16 left-0 w-full bg-slate-900/95 backdrop-blur-sm shadow-lg rounded-b-lg py-4 px-4 hidden transition-all duration-300 ease-in-out transform origin-top scale-y-0 opacity-0">
+                    <div class="flex flex-col space-y-4">
+                        <a href="#home" class="text-gray-300 hover:text-blue-400 transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-white/5">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-white/5">About</a>
+                        <a href="#skills" class="text-gray-300 hover:text-blue-400 transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-white/5">Skills</a>
+                        <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-white/5">Projects</a>
+                        <a href="#experience" class="text-gray-300 hover:text-blue-400 transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-white/5">Experience</a>
+                        <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors duration-200 py-2 px-4 rounded-lg hover:bg-white/5">Contact</a>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-        <div class="max-w-4xl mx-auto">
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 relative overflow-hidden">
+        <!-- Particles.js Background -->
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+        
+        <div class="w-full max-w-4xl mx-auto relative z-10 px-4">
             <div class="animate-fade-in">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 text-center">
+                <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-center break-words">
                     <span class="gradient-text">Juan José Alonso</span>
                 </h1>
-                <div class="typewriter text-2xl sm:text-3xl lg:text-4xl text-gray-300 mb-8 text-center">
+                <div class="typewriter text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-6 sm:mb-8 text-center">
                     Software Engineering Student & AI Researcher
                 </div>
-                <p class="text-xl text-gray-400 mb-12 max-w-2xl text-left mx-auto">
+                <p class="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-12 w-full max-w-2xl text-center sm:text-left mx-auto">
                     Passionate about artificial intelligence, software development, and creating innovative solutions. 
                     Currently pursuing my degree at UC Chile while contributing to cutting-edge research.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-lg hover-lift transition-all duration-300 flex items-center gap-2">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+                    <a href="#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover-lift transition-all duration-300 flex items-center gap-2 text-sm sm:text-base justify-center">
                         <i class="fas fa-envelope text-lg"></i>
                         Get In Touch
                     </a>
-                    <a href="src/CV_Juan_José_Alonso.pdf" download class="border border-gray-600 hover:border-blue-400 text-gray-300 hover:text-blue-400 font-semibold py-4 px-8 rounded-lg hover-lift transition-all duration-300 flex items-center gap-2">
+                    <a href="src/CV_Juan_José_Alonso.pdf" download class="border border-gray-600 hover:border-blue-400 text-gray-300 hover:text-blue-400 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover-lift transition-all duration-300 flex items-center gap-2 text-sm sm:text-base justify-center">
                         <i class="fas fa-download text-lg"></i>
                         Download CV
                     </a> 
@@ -120,14 +142,14 @@
     <!-- About Section -->
     <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 animate-slide-up">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="100">
                 <h2 class="text-4xl font-bold mb-4">About Me</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="animate-slide-left">
-                    <div class="glass rounded-2xl p-8 hover-lift">
+                <div data-aos="fade-right" data-aos-delay="200" class="animate-slide-left">
+                    <div class="glass rounded-2xl p-8 hover-lift" data-aos="fade-left" data-aos-delay="300">
                         <h3 class="text-2xl font-semibold mb-4 text-blue-400">Who I Am</h3>
                         <p class="text-gray-300 leading-relaxed mb-6">
                             I'm a 22-year-old Software Engineering student at Pontificia Universidad Católica de Chile, 
@@ -140,8 +162,8 @@
                     </div>
                 </div>
                 
-                <div class="animate-slide-up">
-                    <div class="glass rounded-2xl p-8 hover-lift">
+                <div data-aos="fade-left" data-aos-delay="300" class="animate-slide-up">
+                    <div class="glass rounded-2xl p-8 hover-lift" data-aos="fade-left" data-aos-delay="400">
                         <h3 class="text-2xl font-semibold mb-4 text-purple-400">Quick Facts</h3>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-3">
@@ -170,14 +192,14 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 animate-slide-up">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="100">
                 <h2 class="text-4xl font-bold mb-4">Skills & Technologies</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
                 <!-- Programming Languages -->
-                <div class="glass rounded-2xl p-6 hover-lift">
+                <div class="glass rounded-2xl p-6 hover-lift" data-aos="zoom-in" data-aos-delay="200">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-code text-2xl text-blue-400 mr-3"></i>
                         <h3 class="text-xl font-semibold">Programming</h3>
@@ -214,7 +236,7 @@
                 </div>
 
                 <!-- AI & ML -->
-                <div class="glass rounded-2xl p-6 hover-lift">
+                <div class="glass rounded-2xl p-6 hover-lift" data-aos="zoom-in" data-aos-delay="300">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-brain text-2xl text-purple-400 mr-3"></i>
                         <h3 class="text-xl font-semibold">AI & Machine Learning</h3>
@@ -251,7 +273,7 @@
                 </div>
 
                 <!-- Web Development -->
-                <div class="glass rounded-2xl p-6 hover-lift">
+                <div class="glass rounded-2xl p-6 hover-lift" data-aos="zoom-in" data-aos-delay="400">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-globe text-2xl text-pink-400 mr-3"></i>
                         <h3 class="text-xl font-semibold">Web Development</h3>
@@ -293,14 +315,14 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 animate-slide-up">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="100">
                 <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up">
                 <!-- ChessRec Project -->
-                <div class="glass rounded-2xl p-8 hover-lift group">
+                <div class="glass rounded-2xl p-8 hover-lift group" data-aos="zoom-in" data-aos-delay="200">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-chess text-3xl text-blue-400 mr-3"></i>
                         <h3 class="text-2xl font-semibold">ChessRec</h3>
@@ -326,7 +348,7 @@
                 </div>
 
                 <!-- Academic Publication -->
-                <div class="glass rounded-2xl p-8 hover-lift group">
+                <div class="glass rounded-2xl p-8 hover-lift group" data-aos="zoom-in" data-aos-delay="300">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-graduation-cap text-3xl text-purple-400 mr-3"></i>
                         <h3 class="text-2xl font-semibold">Academic Publication</h3>
@@ -357,12 +379,12 @@
     <!-- Experience Section -->
     <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 animate-slide-up">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="100">
                 <h2 class="text-4xl font-bold mb-4">Experience & Achievements</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
             </div>
             
-            <div class="space-y-8">
+            <div class="space-y-8" data-aos="fade-up" data-aos-delay="200">
                 <!-- Current Role -->
                 <div class="glass rounded-2xl p-8 hover-lift">
                     <div class="flex items-start space-x-4">
@@ -437,7 +459,7 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16 animate-slide-up">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="100">
                 <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
                 <p class="text-xl text-gray-400 mt-4">Let's discuss opportunities, collaborations, or just have a chat!</p>
@@ -447,22 +469,44 @@
                 <!-- Contact Info -->
                 <div class="glass rounded-2xl p-8 hover-lift">
                     <h3 class="text-2xl font-semibold mb-6 text-blue-400">Contact Information</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-envelope text-blue-400 text-xl"></i>
-                            <a href="mailto:jalonsol@uc.cl" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">
-                                jalonsol@uc.cl
-                            </a>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-phone text-purple-400 text-xl"></i>
-                            <a href="tel:+56968547247" class="text-gray-300 hover:text-purple-400 transition-colors duration-200">
-                                +56 9 6854 7247
-                            </a>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-map-marker-alt text-pink-400 text-xl"></i>
-                            <span class="text-gray-300">Santiago, Chile</span>
+                    <div class="space-y-2">
+                        <a href="mailto:jalonsol@uc.cl" class="flex items-center p-4 rounded-xl transition-all duration-300 group hover:bg-white/5">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-500/30 transition-colors duration-300">
+                                <i class="fas fa-envelope text-2xl text-blue-400"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white mb-1">Email</h4>
+                                <p class="text-sm text-gray-400">jalonsol@uc.cl</p>
+                            </div>
+                            <div class="text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                        </a>
+                        
+                        <a href="tel:+56968547247" class="flex items-center p-4 rounded-xl transition-all duration-300 group hover:bg-white/5">
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4 group-hover:bg-purple-500/30 transition-colors duration-300">
+                                <i class="fas fa-phone text-2xl text-purple-400"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white mb-1">Phone</h4>
+                                <p class="text-sm text-gray-400">+56 9 6854 7247</p>
+                            </div>
+                            <div class="text-purple-400 group-hover:text-purple-300 transition-colors duration-200">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                        </a>
+                        
+                        <div class="flex items-center p-4 rounded-xl transition-all duration-300 group hover:bg-white/5">
+                            <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mr-4 group-hover:bg-pink-500/30 transition-colors duration-300">
+                                <i class="fas fa-map-marker-alt text-2xl text-pink-400"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white mb-1">Location</h4>
+                                <p class="text-sm text-gray-400">Santiago, Chile</p>
+                            </div>
+                            <div class="text-pink-400 group-hover:text-pink-300 transition-colors duration-200">
+                                <i class="fas fa-map"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -516,14 +560,59 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto text-center">
-            <p class="text-gray-400">
-                © 2025 Juan José Alonso. Built with ❤️ and modern web technologies.
-            </p>
-            <p class="text-gray-500 text-sm mt-2">
-                Last updated: August 14th, 2025
-            </p>
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- About Column -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 gradient-text inline-block">Juan José Alonso</h3>
+                    <p class="text-gray-400 mb-4">
+                        Software Engineering Student & AI Researcher passionate about creating innovative solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/jalonsoluc" class="text-gray-400 hover:text-blue-400 transition-colors duration-200" aria-label="GitHub">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/juan-jos%C3%A9-alonso-lecaros-a0168023a/" class="text-gray-400 hover:text-blue-400 transition-colors duration-200" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/56968547247" class="text-gray-400 hover:text-blue-400 transition-colors duration-200" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> About</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Skills</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-blue-400"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope text-blue-400 mr-2"></i> jalonsol@uc.cl</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone text-blue-400 mr-2"></i> +56 9 6854 7247</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt text-blue-400 mr-2"></i> Santiago, Chile</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    © 2025 Juan José Alonso. Built with <span class="text-red-400">❤️</span> and modern web technologies.
+                </p>
+                <p class="text-gray-500 text-sm">
+                    Last updated: August 14th, 2025
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -577,6 +666,185 @@
         }, { threshold: 0.5 });
 
         skillBars.forEach(bar => skillObserver.observe(bar));
+    </script>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 shadow-lg transform transition-transform duration-300 opacity-0 translate-y-10 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // AOS Initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+            
+            // Particles.js Configuration
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": ["#3b82f6", "#8b5cf6", "#ec4899"]
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#3b82f6",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 0.5
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+        
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+                scrollToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                scrollToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-10');
+                scrollToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden', 'scale-y-0', 'opacity-0');
+                mobileMenu.classList.add('scale-y-100', 'opacity-100');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times text-xl"></i>';
+            } else {
+                mobileMenu.classList.add('scale-y-0', 'opacity-0');
+                mobileMenu.classList.remove('scale-y-100', 'opacity-100');
+                setTimeout(() => {
+                    if (!isMenuOpen) mobileMenu.classList.add('hidden');
+                }, 300);
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('scale-y-0', 'opacity-0');
+                mobileMenu.classList.remove('scale-y-100', 'opacity-100');
+                setTimeout(() => {
+                    if (!isMenuOpen) mobileMenu.classList.add('hidden');
+                }, 300);
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+            });
+        });
     </script>
 </body>
 </html>
